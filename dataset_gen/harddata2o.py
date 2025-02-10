@@ -42,18 +42,18 @@ class FiniteAutomaton:
         return False
 
 # Function to generate random strings
-def random_string(length=4):    # Default length is 5
-    return ''.join(random.choices('ABCD', k=length))  # Randomly select letters
+def random_string(length=2):    # Default length is 5
+    return ''.join(random.choices('ABC', k=length))  # Randomly select letters
     
 # Function to generate transitions
-def generate_transitions(start_string, num_transitions=4):  # Default number of transitions is 5
+def generate_transitions(start_string, num_transitions=6):  # Default number of transitions is 5
     
     # Initialize variables
     transitions = []                # List of transitions
     # src_states = []                 # List of source states
     current_string = start_string   # Current string is the start string
     states = [current_string]       # List of states
-    var1=3                          # Number of transitions to be reused
+    var1=4                          # Number of transitions to be reused
     transition_srcs = []            # List of source substrings
     no_of_reuses = 0
 
@@ -68,28 +68,28 @@ def generate_transitions(start_string, num_transitions=4):  # Default number of 
         # fl=1
         # print("len(src_states): ",  len(src_states))
 
-        ## for reusing transitions
-        # for i in range(len(transition_srcs)):                           # Iterate over the transitions 
-        #     if(count==var1):
-        #         break
-        #     # print(i)
-        #     transition_src = transition_srcs[i]                         # Get the source state
-        #     transition = transitions[i]                                 # Get the transition
-        #     if(transition_src in current_string):                       # If the source state is in the current string
-        #         # print("resusing a transition")
-        #         no_of_reuses = no_of_reuses + 1
-        #         # print("transition_src: ", transition_src)
-        #         # print("current_string: ", current_string)
-        #         # print("curr "+ current_string)
-        #         substring_to_replace = transition["src"]                # Get the source substring
-        #         # print("src " + substring_to_replace)
-        #         new_substring = transition["tgt"]                       # Get the target substring
-        #         # print("tgt " + new_substring)
-        #         current_string = current_string.replace(substring_to_replace, new_substring, 1)
-        #         # print("current_string: ", current_string)
-        #         # fl=0
-        #         count = count + 1
-                # break
+        # for reusing transitions
+        for i in range(len(transition_srcs)):                           # Iterate over the transitions 
+            if(count==var1):
+                break
+            # print(i)
+            transition_src = transition_srcs[i]                         # Get the source state
+            transition = transitions[i]                                 # Get the transition
+            if(transition_src in current_string):                       # If the source state is in the current string
+                # print("resusing a transition")
+                no_of_reuses = no_of_reuses + 1
+                # print("transition_src: ", transition_src)
+                # print("current_string: ", current_string)
+                # print("curr "+ current_string)
+                substring_to_replace = transition["src"]                # Get the source substring
+                # print("src " + substring_to_replace)
+                new_substring = transition["tgt"]                       # Get the target substring
+                # print("tgt " + new_substring)
+                current_string = current_string.replace(substring_to_replace, new_substring, 1)
+                # print("current_string: ", current_string)
+                # fl=0
+                count = count + 1
+                break
 
         # if(fl==1):
         if(len(current_string) >= 2):
@@ -113,11 +113,16 @@ def generate_transitions(start_string, num_transitions=4):  # Default number of 
 
     # Add cross transitions
     # for i in range(len(states)):
-    #     if(i % 2 == 0):
-    #         src_state = states[i]
-    #         tgt_state = random_string(random.randint(1, 3)) 
-    #         if src_state != tgt_state:
-    #             transitions.append({"src": src_state, "tgt": tgt_state})
+    #     for j in range(i + 1, len(states)):
+    #         if states[i] != states[j]:
+    #             substring_length = random.randint(2, min(3, len(states[i])))
+    #             start_index = random.randint(0, len(states[i]) - substring_length)
+    #             substring_to_replace = states[i][start_index:start_index + substring_length]
+    #             if substring_to_replace in states[j]:
+    #                 new_substring = random_string(random.randint(1, 2))
+    #                 if substring_to_replace != new_substring:
+    #                     transitions.append({"src": substring_to_replace, "tgt": new_substring})
+    #                     states[j] = states[j].replace(substring_to_replace, new_substring, 1)
 
     # Final transition to empty string
     if (current_string and (current_string not in transition_srcs)):
@@ -128,13 +133,13 @@ def generate_transitions(start_string, num_transitions=4):  # Default number of 
     # print(src_states)
     # print(transition_srcs)
     # print(transitions)
-    print("no_of_reuses: ", no_of_reuses)
+    # print("no_of_reuses: ", no_of_reuses)
     return transitions
 
 # Main generator function
 def generate_problem(problem_id):
     while True:
-        start_string = random_string(6)
+        start_string = random_string(10)
         transitions = generate_transitions(start_string)
         fa = FiniteAutomaton(start_string, transitions)
 

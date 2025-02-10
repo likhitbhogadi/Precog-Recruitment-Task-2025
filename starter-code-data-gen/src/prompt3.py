@@ -3,7 +3,9 @@ import json
 import google.generativeai as genai
 
 # Configure the API key
-genai.configure(api_key='AIzaSyA-N32yR44YV5Fj1rezq7dZVJqXCxDy6Is')
+# genai.configure(api_key='AIzaSyCSG8x8XEEu23_0n_u1970Xt-LI66UbaoQ')
+# genai.configure(api_key='AIzaSyA-N32yR44YV5Fj1rezq7dZVJqXCxDy6Is')
+genai.configure(api_key='AIzaSyAcRplauQsKtpaCPlnMAW-KoEHJC9_pGLA')
 
 # Create the model
 generation_config = {
@@ -33,32 +35,40 @@ def process_problems(problems):
         transitions = problem["transitions"]
         
         # Prepare the message for the chat session
+        # Few-Shot Prompt:
         message = f"""
-        Few-Shot Prompt:
-        Here are examples of valid solutions. Follow the pattern:
+        I will guide you through solving a `sed`-style text manipulation problem. Follow these steps carefully:
 
         Example 1:
-        Initial: "CBAAD", Transitions: [CB→A, AA→C, CAD→""]
+        Initial String: "CBAAD", Transitions: [CB→A, AA→C, CAD→""]
         Steps:
-        1. Apply index 0 (replace "CB" → "A"): "CBAAD" → "AAAD"
-        2. Apply index 1 (replace "AA" → "C"): "AAAD" → "CAD"
-        3. Apply index 2 (replace "CAD" → ""): "CAD" → ""
-        Solution: [0,1,2]
+        1. Apply the first transition (replace "CB" with "A"): "CBAAD" → "AAAD"
+        2. Apply the second transition (replace "AA" with "C"): "AAAD" → "CAD"
+        3. Apply the third transition (replace "CAD" with ""): "CAD" → ""
+
+        Solution: [0, 1, 2]
 
         Example 2:
-        Initial: "ABAB", Transitions: [AB→"", BA→X]
+        Initial String: "ABAB", Transitions: [AB→"", BA→X]
         Steps:
-        1. Apply index 0 (replace "AB" → ""): "ABAB" → "AB"
-        2. Apply index 0 again: "AB" → ""
-        Solution: [0,0]
+        1. Apply the first transition (replace "AB" with ""): "ABAB" → "AB"
+        2. Apply the first transition again (replace "AB" with ""): "AB" → ""
+
+        Solution: [0, 0]
 
         Now solve:
-        
+
         Problem ID: {problem["problem_id"]}
         Initial String: {initial_string}
         Transitions: {transitions}
-        Format: [index1, index2, ...] (only numbers, no extra text or code)
+
+        Format your solution as a list of indices corresponding to the transitions applied in the correct order, without any extra text. Example: [0, 1, 2]
+
+        Make sure you choose transitions carefully and apply them in the right order to reach the empty string. If the problem involves repeating transitions, apply them in the correct sequence.
+
+        Solution:
         """
+
         # Send the message and get the response
         response = chat_session.send_message(message)
         # Assuming response has a method to get the content as a dictionary

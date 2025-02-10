@@ -4,7 +4,9 @@ import google.generativeai as genai
 
 # Configure the API key
 genai.configure(api_key='AIzaSyA-N32yR44YV5Fj1rezq7dZVJqXCxDy6Is')
-
+# genai.configure(api_key='AIzaSyAcRplauQsKtpaCPlnMAW-KoEHJC9_pGLA')
+# AIzaSyAcRplauQsKtpaCPlnMAW-KoEHJC9_pGLA
+# AIzaSyA-N32yR44YV5Fj1rezq7dZVJqXCxDy6Is
 # Create the model
 generation_config = {
     "temperature": 1,

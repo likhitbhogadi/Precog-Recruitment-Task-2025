@@ -66,6 +66,7 @@ def validate_solutions(problems, solutions):    # Define validate_solutions func
     """
     Validates solutions by checking if they result in an empty string at the end of their transitions.
     """
+    count=0
     for problem_id in problems: # For each problem in the problems dictionary
         logging.info("=====================================================")   # Log the validation of the solution
         if problem_id not in solutions: # If the problem is not in the solutions dictionary
@@ -87,12 +88,12 @@ def validate_solutions(problems, solutions):    # Define validate_solutions func
             current = current.replace(from_pattern, to_pattern, 1)  # Replace the source pattern with the target pattern
             logging.info(f"Pattern: {from_pattern} -> {to_pattern}, String: {current}")   # Log the pattern and string
         
-        count=0
 
         if current != '':   # If the current string is not empty
             logging.warning(f"Problem {problem_id} has an invalid solution!")   # Log the error
         else:   # If the current string is empty
             logging.info(f"Problem {problem_id} has a valid solution!") # Log the solution
             count+=1
-        logging.info(f"Total number of valid solutions: {count}")    # Log the total number of valid
-        logging.info(f"Total number of invalid solutions: {len(problems)-count}")    # Log the total number of invalid
+
+    logging.info(f"Total number of valid solutions: {count}")    # Log the total number of valid
+    logging.info(f"Total number of invalid solutions: {len(problems)-count}")    # Log the total number of invalid
