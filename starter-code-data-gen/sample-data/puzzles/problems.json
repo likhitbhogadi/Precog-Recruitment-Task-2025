@@ -1,0 +1,316 @@
+[
+    {
+        "problem_id": "000",
+        "initial_string": "BBBABA",
+        "transitions": [
+            {
+                "src": "AB",
+                "tgt": "A"
+            },
+            {
+                "src": "BB",
+                "tgt": "AB"
+            },
+            {
+                "src": "AA",
+                "tgt": "A"
+            },
+            {
+                "src": "ABA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "001",
+        "initial_string": "ABBAAA",
+        "transitions": [
+            {
+                "src": "BBA",
+                "tgt": "AA"
+            },
+            {
+                "src": "AAA",
+                "tgt": "BA"
+            },
+            {
+                "src": "BB",
+                "tgt": "BA"
+            },
+            {
+                "src": "BAA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "002",
+        "initial_string": "BBBBBB",
+        "transitions": [
+            {
+                "src": "BBB",
+                "tgt": "B"
+            },
+            {
+                "src": "BB",
+                "tgt": "B"
+            },
+            {
+                "src": "B",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "003",
+        "initial_string": "ABBBAA",
+        "transitions": [
+            {
+                "src": "BBB",
+                "tgt": "B"
+            },
+            {
+                "src": "BAA",
+                "tgt": "BB"
+            },
+            {
+                "src": "ABB",
+                "tgt": "AB"
+            },
+            {
+                "src": "AB",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "004",
+        "initial_string": "ABAABA",
+        "transitions": [
+            {
+                "src": "BA",
+                "tgt": "B"
+            },
+            {
+                "src": "BB",
+                "tgt": "AB"
+            },
+            {
+                "src": "AAB",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "005",
+        "initial_string": "ABAABB",
+        "transitions": [
+            {
+                "src": "AAB",
+                "tgt": "B"
+            },
+            {
+                "src": "ABB",
+                "tgt": "B"
+            },
+            {
+                "src": "BB",
+                "tgt": "AB"
+            },
+            {
+                "src": "AB",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "006",
+        "initial_string": "BABBAA",
+        "transitions": [
+            {
+                "src": "BAB",
+                "tgt": "A"
+            },
+            {
+                "src": "ABA",
+                "tgt": "A"
+            },
+            {
+                "src": "AA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "007",
+        "initial_string": "BBBABA",
+        "transitions": [
+            {
+                "src": "ABA",
+                "tgt": "BA"
+            },
+            {
+                "src": "BB",
+                "tgt": "A"
+            },
+            {
+                "src": "AA",
+                "tgt": "B"
+            },
+            {
+                "src": "BA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "008",
+        "initial_string": "AAAAAB",
+        "transitions": [
+            {
+                "src": "AA",
+                "tgt": "AB"
+            },
+            {
+                "src": "ABA",
+                "tgt": "A"
+            },
+            {
+                "src": "AB",
+                "tgt": "A"
+            },
+            {
+                "src": "A",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "009",
+        "initial_string": "ABABAB",
+        "transitions": [
+            {
+                "src": "AB",
+                "tgt": "A"
+            },
+            {
+                "src": "AAB",
+                "tgt": "AA"
+            },
+            {
+                "src": "AA",
+                "tgt": "B"
+            },
+            {
+                "src": "BA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "010",
+        "initial_string": "ABABAB",
+        "transitions": [
+            {
+                "src": "AB",
+                "tgt": "AA"
+            },
+            {
+                "src": "AA",
+                "tgt": "BB"
+            },
+            {
+                "src": "BB",
+                "tgt": "A"
+            },
+            {
+                "src": "ABBAA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "011",
+        "initial_string": "BABABB",
+        "transitions": [
+            {
+                "src": "ABB",
+                "tgt": "BB"
+            },
+            {
+                "src": "BBB",
+                "tgt": "B"
+            },
+            {
+                "src": "BB",
+                "tgt": "B"
+            },
+            {
+                "src": "B",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "012",
+        "initial_string": "BAAABA",
+        "transitions": [
+            {
+                "src": "AAB",
+                "tgt": "BB"
+            },
+            {
+                "src": "ABB",
+                "tgt": "AB"
+            },
+            {
+                "src": "BABA",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "013",
+        "initial_string": "AAAABB",
+        "transitions": [
+            {
+                "src": "AA",
+                "tgt": "A"
+            },
+            {
+                "src": "AAB",
+                "tgt": "AA"
+            },
+            {
+                "src": "AB",
+                "tgt": "A"
+            },
+            {
+                "src": "A",
+                "tgt": ""
+            }
+        ]
+    },
+    {
+        "problem_id": "014",
+        "initial_string": "ABABAB",
+        "transitions": [
+            {
+                "src": "BA",
+                "tgt": "A"
+            },
+            {
+                "src": "AAB",
+                "tgt": "B"
+            },
+            {
+                "src": "AB",
+                "tgt": "AA"
+            },
+            {
+                "src": "AA",
+                "tgt": ""
+            }
+        ]
+    }
+]
