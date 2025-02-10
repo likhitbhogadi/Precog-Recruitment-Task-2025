@@ -179,7 +179,7 @@ def generate_state_diagram(problems):
     dot.render('finite_automaton', format='png', cleanup=True)
 
 # Example usage
-generate_problems(100, '../starter-code-data-gen-1/sample-data/puzzles/problems.json')
+generate_problems(100, '../starter-code-data-gen/sample-data/puzzles/problems.json')
 
 # Load JSON from file and generate graphs
 with open('fsm_data.json', 'r') as f:
